@@ -1,0 +1,22 @@
+CREATE SCHEMA IF NOT EXISTS 'tasks_db' DEFAULT CHARACTER SET utf8 ;
+USE 'tasks_db' ;
+
+CREATE TABLE completed_task
+(
+    completed_task_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    task_name VARCHAR(200) NOT NULL,
+    complete_date TIMESTAMP DEFAULT 'CURRENT_TIMESTAMP' NOT NULL,
+    priority INT(11) NOT NULL,
+    overdue TINYINT(1) NOT NULL
+);
+CREATE UNIQUE INDEX idcompleted_task_UNIQUE ON completed_task (completed_task_id);
+
+CREATE TABLE task
+(
+    task_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    task_name VARCHAR(200) NOT NULL,
+    target_date TIMESTAMP DEFAULT 'CURRENT_TIMESTAMP' NOT NULL,
+    priority INT(11) NOT NULL,
+    overdue TINYINT(1) NOT NULL
+);
+CREATE UNIQUE INDEX idtask_UNIQUE ON task (task_id);
