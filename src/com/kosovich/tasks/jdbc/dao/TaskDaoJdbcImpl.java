@@ -22,7 +22,7 @@ public class TaskDaoJdbcImpl implements TaskDao {
         Connection conn = TransactionJdbcImpl.getInstance().getConnection();
         try {
             String query;
-            if(task.getFinished() == null || equals(false)) {
+            if(task.getFinished() == null || task.getFinished().equals(false)) {
                 query = "insert into task (task_name, target_date, priority, overdue) " +
                         "values (?, ?, ?, ?)";
             }else{
